@@ -1,0 +1,130 @@
+* {
+    margin: 0;
+    padding: 0;
+    width: auto;
+}
+.appbar {
+    width: 100%;
+    height: 70px;
+    background-color: #a03037;
+    box-shadow: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.appbar div{
+    display: flex;
+}
+.appbar div img{
+    width: 30px;
+    height: 30px;
+}
+.appbar div p{
+    color: white;
+    padding-left: 5px;
+    font-size: 20px;
+    width: auto;
+}
+.input{
+    width: 490px;
+    height: 33px;
+    border-radius: 3px;
+    align-content: center;
+    background:#FCFCFC 0% 0% no-repeat padding-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 3px;
+    flex-grow: 0;
+    margin-left: 30px;
+    opacity: 1;
+}
+.appbar .input .searchicon {
+    color: grey;
+}
+.appbar .input input {
+    height: 29px;
+    outline: none;
+    border-radius: 3px;
+    border: none;
+}
+.appbar div {
+    padding: 0 25px;
+}
+.appbar div .pro {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    width: auto;
+}
+.appbar div .pro .proicon {
+    color: white;
+    margin-left: 10px;
+}
+.appbar div .cart {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    width: auto;
+}
+.appbar div .cart .carticon {
+    color: white;
+    margin-left: 4px;
+}
+@media only screen and (max-width: 360px) {
+    .appbar {
+        width: 225%;
+   }
+    .appbar div {
+        display: flex;
+   }
+    .appbar div img {
+        width: 30px;
+        height: 30px;
+   }
+    .appbar div p {
+        color: white;
+        padding-left: 5px;
+        font-size: 20px;
+        width: auto;
+   }
+    .appbar .input {
+        width: 400px;
+        height: 29px;
+        border-radius: 8px;
+        align-content: center;
+        background: white;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding-left: 3px;
+        flex-grow: 0;
+   }
+    .appbar .input input {
+        height: 29px;
+        outline: none;
+        border-radius: 8px;
+        border: none;
+   }
+    .appbar div {
+        padding: 0 25px;
+   }
+    .appbar div .pro {
+        color: white;
+        display: flex;
+        flex-direction: column;
+        width: auto;
+   }
+    .appbar div .pro .proicon {
+        color: white;
+   }
+    .appbar div .cart {
+        color: white;
+        display: flex;
+        flex-direction: column;
+        width: auto;
+   }
+    .appbar div .cart .carticon {
+        color: white;
+   }
+}
