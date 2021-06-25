@@ -41,22 +41,18 @@ class Login extends React.Component {
       isLoading:true
     };
   }
-  componentDidMount(){
-    this.login();
-  }
+  // componentDidMount(){
+  //   this.login();
+  // }
   handleClose = (event, reason) => {
     if (reason === "clickaway") {
       return;
     }
-    this.setState({ show: false});
-    this.props.history.push("/dashboard");
+    this.setState({ show: false, pen:false});
   };
   handleToggle = () => {
     this.setState({ pen: !this.state.pen });
-    if(this.state.pen === false){
-
-     return this.props.history.push("/dashboard");
-    }
+   
   };
   changeVisibility = () => {
     this.setState({ visibility: !this.state.visibility });
@@ -70,9 +66,9 @@ class Login extends React.Component {
     });
     var valid = true;
 
-    let patter =
+    let patt =
       "^[0-9a-zA-Z]+([.\\-_+][0-9a-zA-Z]+)*@[a-z0-9A-Z]+.[a-z]{2,4}([.][a-zA-Z]{2,})*$";
-    let pattern = new RegExp(patter);
+    let pattern = new RegExp(patt);
     if (!pattern.test(this.state.email)) {
       this.setState({ emailError: true });
       this.setState({ emailErrormsg: "Invalid Email address" });
@@ -103,15 +99,16 @@ class Login extends React.Component {
     this.setState({ login: !this.state.login });
   };
   login = () => {
+    console.log("login method");
     let data = {
       email: this.state.email,
       password: this.state.password,
     };
+    this.handleToggle();
     // this.setState({pen:true})
     service
       .userlogin(data)
       .then((res) => {
-        this.handleToggle();
         console.log(res);
         this.setState({
           snackType: "success",
@@ -121,9 +118,11 @@ class Login extends React.Component {
         });
         localStorage.setItem("usertoken", res.data.result.accessToken);
         console.log(localStorage.getItem("usertoken"));
-        this.setState({pen:false})
+        this.handleClose()
+        this.props.history.push("/dashboard");
       })
       .catch((error) => {
+        this.handleClose()
         console.log(error);
         this.setState({
           snackType: "error",
@@ -188,16 +187,14 @@ class Login extends React.Component {
         <Button variant="contained" color="secondary" onClick={this.login}>
           Login
         </Button>
-        {this.state.pen &&
+        {this.state.pen ?
         <Backdrop
           className={classes.backdrop}
           open={this.state.pen}
           onClick={this.handleClose}
-          transitionDuration={3000}
-          pen={this.state.pen}
         >
           <CircularProgress color="inherit" />
-        </Backdrop>}
+        </Backdrop>:<></>}
         <div
           style={{
             textAlign: "center",

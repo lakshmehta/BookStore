@@ -3,7 +3,16 @@ import { TextField,  Button, InputAdornment } from '@material-ui/core';
 import { Visibility, VisibilityOff } from '@material-ui/icons';
 import UserService from '../../Services/userService';
 import '../../App.css'
+import Backdrop from "@material-ui/core/Backdrop";
+import CircularProgress from "@material-ui/core/CircularProgress";
+import { withStyles } from "@material-ui/core/styles";
 
+const styles = theme => ({
+  backdrop: {
+    zIndex: theme.zIndex.drawer + 1,
+    color: '#fff',
+  },
+});
 const service =new UserService();
 
 const name = React.createRef();
@@ -13,7 +22,7 @@ const phone = React.createRef();
 const save = React.createRef();
 
 
-export default class Signup extends Component {
+ class Signup extends Component {
     constructor(){
         super()
         this.state={
@@ -29,9 +38,19 @@ export default class Signup extends Component {
             emailErrormsg: "",
             passwordErrormsg: "",
             mobileErrormsg: "",
+            open:false
         }
     }
-
+    handleClose = (event, reason) => {
+        if (reason === "clickaway") {
+          return;
+        }
+        this.setState({ show: false, open:false});
+      };
+      handleToggle = () => {
+        this.setState({ open: !this.state.open });
+       
+      };
 changeState = (e) => {
     let name = e.target.name;
     let value = e.target.value;
@@ -100,14 +119,19 @@ handleSignUp=(e)=>{
             "password": this.state.password,
             "phone":this.state.mobile
         }
+        this.handleToggle()
         service.userRegistration(data).then((result) => {
             console.log(result,"SignUp  method");
+            this.handleClose()
+            
         }).catch((error) => {
+            this.handleClose()
             console.log(error);
         }) 
     }
 }
     render() {
+        const {classes} = this.props
         return (
             <>
                 <TextField
@@ -166,7 +190,16 @@ handleSignUp=(e)=>{
                     onClick={(e)=>this.handleSignUp(e)}>
                         Signup
                 </Button>
+                {this.state.open ?
+        <Backdrop
+          className={classes.backdrop}
+          open={this.state.open}
+          onClick={this.handleClose}
+        >
+          <CircularProgress color="inherit" />
+        </Backdrop>:<></>}
             </>
         )
     }
 }
+export default withStyles(styles)(Signup)
