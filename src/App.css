@@ -1,38 +1,114 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.image{
+  position: absolute;
+  width: 624px;
+  height: 391px;
+  background: #f5f5f5 0% 0% no-repeat padding-box;
+  border-radius: 12px;
+  opacity: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  box-sizing: border-box;
+}
+.slogan {
+  margin-left: 50px;
+  padding-top: 20px;
+  text-align: left;
+  font: normal normal medium 18px/24px Roboto;
+  letter-spacing: 0px;
+  color: #0A0102;
+  text-transform: uppercase;
+  opacity: 1
+}
+.image img {
+  margin-left: 40px;
+}
+.form {
+  position: absolute;
+  width: 325px;
+  height: 425px;
+  background: #fff 0% 0% no-repeat padding-box;
+  box-shadow: 0px 5px 15px #000 29;
+  border: 1px solid #e4e4e4;
+  border-radius: 6px;
+  opacity: 1;
+  margin-left: 300px;
+  margin-top: -10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.inlinelinks {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-align: center;
+  font-family: Roboto;
+  font-size: large;
+  font-weight: 400;
+  padding: 13px 15px 0;
+
+}
+/* .btn1{
+  font: normal normal medium 25px/33px Roboto;
+  letter-spacing: 0px;
+  color: #0A0102;
+  text-transform: uppercase;
+  opacity: 1;
+  cursor: pointer;
+}
+.btn{
+  font: normal normal medium 25px/33px Roboto;
+  letter-spacing: 0px;
+  color: #0A0102;
+  text-transform: uppercase;
+  opacity: 1;
+  cursor: pointer;
+} */
+
+.links {
+  color: #0A0102;
+  opacity: 1;
+  cursor: pointer;  
+}
+
+.links2 {
+  
+  color: #878787; 
+  /* text-decoration-style: solid; */
+  /* text-decoration-thickness: 4px;
+  text-decoration-line: underline;
+  text-decoration-color: #a03037; */
+  opacity: 0.3;
+  cursor: pointer;
+}
+.form Button {
+  background-color: #a03037;
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.end{
+  color: grey;
+  width: 14px;
+  height: 12px;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.textF{
+  margin-top: -3% !important;
+}
+@media only screen and (max-width: 360px) {
+  .fullbody {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+ }
+  .form {
+    margin: 0;
+    width: 300px;
+    padding: 15px;
+ }
+  .imagebody {
+    display: none;
+ }
 }
