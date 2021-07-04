@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import React, { Component } from 'react'
 import { TextField,  Button, InputAdornment } from '@material-ui/core';
 import { Visibility, VisibilityOff } from '@material-ui/icons';
@@ -15,11 +16,11 @@ const styles = theme => ({
 });
 const service =new UserService();
 
-const name = React.createRef();
-const email = React.createRef();
-const pass = React.createRef();
-const phone = React.createRef();
-const save = React.createRef();
+// const name = React.createRef();
+// const email = React.createRef();
+// const pass = React.createRef();
+// const phone = React.createRef();
+// const save = React.createRef();
 
 
  class Signup extends Component {
@@ -68,6 +69,7 @@ checkValidation=()=>{
         mobileErrormsg:''
     })
     var valid = true;
+    
     if(this.state.fullName.length == 0){
         this.setState({ fullNameError: true })
         this.setState({ fullNameErrormsg: "Enter full name " })
@@ -80,6 +82,7 @@ checkValidation=()=>{
         this.setState({ emailErrormsg: "Invalid Email address" })
         valid = false;
     }
+    
     if (this.state.email.length == 0) {
         this.setState({ emailError: true })
         this.setState({ emailErrormsg: "Choose Email address" })

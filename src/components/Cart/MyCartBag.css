@@ -1,0 +1,105 @@
+.cartcontent {
+    width: max-width;
+    height:100vh;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    font-family: Roboto;
+    margin: 0 15.5%;
+    padding: 30px;
+}
+.cartcontent .mycart {
+    margin-top: 20px;
+    font-size: 20px;
+}
+.cartcontent .Home {
+    top: 79px;
+    left: 219px;
+    width: 60px;
+    height: 16px;
+    text-align: left;
+    font: normal normal normal 18px/24px Roboto;
+    letter-spacing: 0px;
+    color: #0a0102;
+    opacity: 1;
+}
+.cartcontent .cartitems .part1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.cartcontent .cartitems .part1 .container {
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.cartcontent .cartitems .part1 .container .items {
+    padding: 10px;
+}
+.cartcontent .cartitems .part1 .container .items .author {
+    font-size: 15px;
+    color: #878787;
+    padding-bottom: 8px;
+}
+.cartcontent .cartitems .part1 .container .items .price {
+    padding-bottom: 5px;
+}
+.cartcontent .cartitems .part1 .container .items .inlineicons {
+    padding: 5px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.cartcontent .cartitems .part1 .container .items .inlineicons .quantity {
+    width: 34px;
+    height: 23px;
+    text-align: center;
+    border: 1px solid #878787;
+    margin: 0 3px;
+}
+.cartcontent .cartitems .part1 .container .items .inlineicons .remove {
+    padding: 0 10px;
+}
+.cartcontent .cartitems .part1 img {
+    width: 60px;
+    height: 80px;
+    margin-right: 20px;
+}
+.cartcontent .cartitems .part1 Button {
+    align-self: flex-end;
+    background-color: #3371b5;
+    color: white;
+}
+.cartcontent .box {
+    width: 774px;
+    height: auto;
+    border: 1px solid #878787;
+    padding: 15px;
+    margin-bottom: 20px;
+    margin: 20px 0px;
+}
+.cartcontent .customerdetails {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.cartcontent .customerdetails .addressfield {
+    width: 480px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.cartcontent .customerdetails Button {
+    align-self: flex-end;
+    background-color: #3371b5;
+    color: white;
+}

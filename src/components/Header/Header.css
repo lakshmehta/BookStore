@@ -66,65 +66,63 @@
     display: flex;
     flex-direction: column;
     width: auto;
+    cursor: pointer;
 }
 .appbar div .cart .carticon {
     color: white;
     margin-left: 4px;
 }
-@media only screen and (max-width: 360px) {
-    .appbar {
-        width: 225%;
+.badge{
+    color: #FCFCFC;
+}
+/* @media screen and (min-width: 360px) { */
+    /* .appbar {
+        width:auto;
+        height: auto;
    }
     .appbar div {
         display: flex;
    }
     .appbar div img {
-        width: 30px;
-        height: 30px;
-   }
-    .appbar div p {
-        color: white;
-        padding-left: 5px;
-        font-size: 20px;
         width: auto;
+        height: auto;
    }
-    .appbar .input {
-        width: 400px;
-        height: 29px;
-        border-radius: 8px;
-        align-content: center;
-        background: white;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        padding-left: 3px;
-        flex-grow: 0;
+    /* .appbar div p {
+        display: none;
+   } */
+    /* .appbar .input {
+       width: 100%;
+       height: auto;
+      
    }
-    .appbar .input input {
-        height: 29px;
+   .appbar .input .searchicon {
+    margin-left: -20px;
+} */
+    /* .appbar .input input { */
+        /* height: 29px;
         outline: none;
         border-radius: 8px;
-        border: none;
-   }
-    .appbar div {
+        border: none; */
+        /* width: 100%;
+        height:auto;
+   } */
+    /* .appbar div {
         padding: 0 25px;
-   }
-    .appbar div .pro {
-        color: white;
-        display: flex;
-        flex-direction: column;
-        width: auto;
-   }
-    .appbar div .pro .proicon {
-        color: white;
+   } */
+    /* .appbar div .pro { */
+      /* width:100%; */
+      /* height: auto;
+   } */
+    /* .appbar div .pro .proicon {
+        /* width:100%; 
+        height: auto;
    }
     .appbar div .cart {
-        color: white;
-        display: flex;
-        flex-direction: column;
+       height:auto;
         width: auto;
    }
     .appbar div .cart .carticon {
-        color: white;
-   }
-}
+        height:auto;
+        width: auto;
+   } 
+}*/
