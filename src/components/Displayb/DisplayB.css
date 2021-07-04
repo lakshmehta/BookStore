@@ -53,8 +53,13 @@
     /* background: #000000 0% 0% no-repeat padding-box; */
     border-radius: 3px;
     /* opacity: 0.09; */
-    cursor: pointer;
+    
 }
+.showbooks:hover{
+    cursor: pointer;
+    box-shadow: 10px 10px 10px 10px rgba(92,99,105,.2);
+}
+
 .bookimage {
     display: flex;
     flex-direction: row;
@@ -152,5 +157,32 @@
     color: white;
 }
 .paginationBlock {
-    margin-left: 38%;
+    margin-left: 27%;
+    margin-top: 47%;
+    position:absolute;
+}
+@media screen and (max-width: 600px){
+    .showbooks {
+        width: auto;
+        height: auto;
+    }
+    .headers{
+        margin-left: 80px;
+    }   
+}
+@media screen and (min-width: 360px) {
+
+    /* .paginationBlock {
+     margin-top: 600%;
+     margin-left: 30px;
+    } */
+    .showbooks {
+        width: auto;
+        height: auto;
+    }
+    .headers {
+        justify-content: center;
+        text-align: center;
+        margin-left: 80px;
+    }    
 }

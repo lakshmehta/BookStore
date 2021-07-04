@@ -1,0 +1,343 @@
+.mainContainer{
+    margin-top: 6%;
+    width: 70%;
+    height: 100vh;
+    margin-left: 170px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    opacity: 1;
+    display: flex;
+    flex-direction: row;
+    color : black;
+}
+.container{
+    width: 40%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    padding: 0.5%;
+}
+.imgs-container{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height:90% ;
+}
+.twoimg-comtainer{
+    display: flex;
+    flex-direction: column;
+    width: 16%;
+    height: 35%;
+}
+.imgsmall1{
+    width: 100%;
+    height: 65%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid red;  
+    border-right:none;
+}
+.image2{
+    width: 100%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid grey;
+    border-right:none;
+    
+}
+.mediumimg{
+    width: 50px;
+    height: 55px;
+}
+.mainimg{
+    height: 100%;
+    width:80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid grey;
+}
+.bigimg{
+    width: 74%;
+    height: 85%;
+}
+.wishlist{
+    width : 84%;
+    height : 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 14%;
+}
+.addtobag{
+    border : none;
+    outline: none;
+    color : #fff;
+    background-color: brown;
+    height : 130%;
+    width :40%;
+    border-radius: 1px;
+    cursor: pointer;
+}
+.addOrRemove{
+    height : 80%;
+    width :40%;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+.addbtn{
+    width : 30%;
+    height : 100%;
+    border-radius: 100px;
+    outline: none;
+    border : none;
+    background-color: lightgray;
+    font-size: large;
+}
+.addwishlist{
+    border : none;
+    outline: none;
+    color : #fff;
+    background-color:  rgba(26, 1, 1, 0.733);
+    height : 130%;
+    width :40%;
+    border-radius: 1px;
+    margin-left: 13%;
+    cursor: pointer;
+}
+.details{
+    width: 60%;
+    height: 110%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.bookdetail{
+    width : 80%;
+    height : 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 100px;
+}
+.cardcontainer{
+    width : 100%;
+    height : 100%;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: sp; */
+}
+.titlebook{
+    width : 100%;
+    height : fit-content;
+    text-align: left;
+    letter-spacing: 0px;
+    font: normal normal normal 28px/37px Roboto;
+    color: #0A0102;
+    position: relative;
+    /* right : 7px;  */
+    opacity: 1;
+}
+.author{
+    width : 100%;
+    height : fit-content;
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+    font-family: 'Roboto', sans-serif;
+    color :  grey;
+    font-weight: 400;
+}
+.card-rating{
+    width : 50%;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+}
+.star{
+    display: flex;
+    flex-direction: row;
+    background-color: green;
+    font-family: 'Roboto', sans-serif;
+    color :  #fff;
+    width : 20%;
+    align-items: center;
+    justify-content: center;
+    
+    border-radius: 2px;
+}
+.number{
+
+}
+.rating-star{
+    margin-left: 8%;
+}
+.authorname{
+    margin-left: 2%;
+}
+
+.card-price{
+    display: flex;
+    flex-direction: row;
+    width : 25%;
+    align-items: center;
+    justify-content: space-around;
+    font-family: 'Roboto', sans-serif;
+    margin-top: 15px;
+}
+
+.discount-price {
+    font-family: 'Roboto', sans-serif;
+    color : black;
+    font-size: x-large;
+    font-weight: 700;
+}
+
+.price{
+    font-family: 'Roboto', sans-serif;
+    color : grey;
+}
+
+.horizoantalline{
+    width : 100%;
+    height : fit-content;
+    margin-top: -20px;
+}
+
+.desc-book{
+    width : 90%;
+    height : 20%;
+    margin-right: 3%;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-around; */
+}
+
+.desc-title {
+    display: flex;
+    flex-direction: row;
+    width :17%;
+    height : 10%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    font-family: 'Roboto', sans-serif;
+    margin-top: 30px;
+}
+.dot {
+    width : 7px;
+    height : 7px;
+    border-radius: 100px;
+    background-color: grey;
+}
+.lorem{
+   margin-top: 7px;
+   margin-left: 12px;
+    width: 542px;
+    height: 80px;
+    font-size: 15px;
+    /* text-align: left; */
+    font: normal normal normal 12px/16px Roboto;
+    letter-spacing: 0px;
+    color: #373434;
+    opacity: 1;
+}
+.horizoantalline{
+    width : 100%;
+    height : fit-content;
+    margin-top: 3px;
+}
+.customer-feedback {
+    width : 93%;
+    height : 30%;
+    display: flex;
+    flex-direction: column;
+    font-size:large;
+    text-align: left;
+    margin-top: 10px;
+    font: normal normal normal 18px/24px Roboto;
+    letter-spacing: 0px;
+    /* justify-content: space-around; */
+}
+.feedback{
+    font-family: 'Roboto', sans-serif;
+    font-size: large;
+    color: black;
+    font-weight: 700;
+}
+.reviews{
+    width : 90%;
+    height : 30%;
+    margin-top: 1%;
+    margin-right: 2.5%;
+}
+.customer-feedback-container {
+    width : 90%;
+    height : 70%;
+    display: flex;
+    padding: 2%;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: #F5F5F5;
+    margin-top: 10px;
+
+}
+
+.overall-rating {
+    font-size: medium;
+    font-family: 'Roboto', sans-serif;
+}
+
+.rating-stars-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.textarea-actual-cutomerfeedback {
+    border : none;
+    outline: none;
+    width: 100%;
+}
+
+.submit-button-container-feedback {
+    width: 76px;
+    height: 24px;
+    background: #3371B5 0% 0% no-repeat padding-box;
+    border-radius: 2px;
+    opacity: 1;
+    margin-left: 400px;
+}
+
+.button {
+    border : none;
+    outline: none;
+    width: 44px;
+    height: 19px;
+    font: normal normal normal 14px/19px Roboto;
+    letter-spacing: 0px;
+    text-transform: capitalize;
+    opacity: 1;
+    background: #3371B5 0% 0% no-repeat padding-box;
+    color: #FFFFFF;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin-left: 15px;
+}
+
+@media only screen and (max-width: 600px){
+    .mainContainer{
+        width: 100%;
+    }
+}

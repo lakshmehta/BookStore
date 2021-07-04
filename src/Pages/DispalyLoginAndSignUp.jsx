@@ -1,10 +1,8 @@
 import React, { Component } from 'react'
 import '../App.css'
 import Picture from '../assets/2766594.png'
-import { TextField,  Button, InputAdornment } from '@material-ui/core';
 import Login from '../components/Login/login';
 import UserService from '../Services/userService';
-import { Visibility, VisibilityOff } from '@material-ui/icons';
 import Signup from '../components/SignUp/signup';
 
 const service =new UserService();

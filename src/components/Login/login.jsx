@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import React from "react";
 import "./login.css";
 import { TextField, Button, InputAdornment } from "@material-ui/core";
@@ -117,7 +118,7 @@ class Login extends React.Component {
           setOpen: true,
         });
         localStorage.setItem("usertoken", res.data.result.accessToken);
-        console.log(localStorage.getItem("usertoken"));
+        // console.log(localStorage.getItem("usertoken"));
         this.handleClose()
         this.props.history.push("/dashboard");
       })
@@ -138,7 +139,7 @@ class Login extends React.Component {
       setOpen: false,
     });
   };
-//   const {classes} = useStyle();
+
   render() {
     const { classes } = this.props;
     return (
