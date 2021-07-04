@@ -75,54 +75,39 @@
 .badge{
     color: #FCFCFC;
 }
-/* @media screen and (min-width: 360px) { */
-    /* .appbar {
-        width:auto;
-        height: auto;
+@media screen and (max-width: 360px) {
+     .appbar {
+        width:100%;
+        justify-content: none;
    }
-    .appbar div {
-        display: flex;
+    .input{
+        width:100%;
+    }
+    .appbar div .pro {
+      margin-left:-30px;
+      font-size:15px
    }
-    .appbar div img {
-        width: auto;
-        height: auto;
-   }
-    /* .appbar div p {
+     .appbar div p {
         display: none;
-   } */
-    /* .appbar .input {
-       width: 100%;
-       height: auto;
-      
-   }
-   .appbar .input .searchicon {
-    margin-left: -20px;
-} */
-    /* .appbar .input input { */
-        /* height: 29px;
-        outline: none;
-        border-radius: 8px;
-        border: none; */
-        /* width: 100%;
-        height:auto;
-   } */
-    /* .appbar div {
-        padding: 0 25px;
-   } */
-    /* .appbar div .pro { */
-      /* width:100%; */
-      /* height: auto;
-   } */
-    /* .appbar div .pro .proicon {
-        /* width:100%; 
-        height: auto;
-   }
-    .appbar div .cart {
-       height:auto;
-        width: auto;
-   }
-    .appbar div .cart .carticon {
-        height:auto;
-        width: auto;
    } 
-}*/
+   .appbar .input input {
+       width: 100%;
+   }
+   .appbar div img{
+       width:30px
+   }
+   .appbar div .pro .proicon{
+       width:25px
+   }
+   .appbar div .cart .carticon{
+       width:25px;
+   }
+   .appbar div .cart{
+    font-size:15px;
+    margin-left: -10px;
+    padding:1px
+   }
+   .appbar .input .searchicon{
+       margin-left: -10px;
+   }
+}
