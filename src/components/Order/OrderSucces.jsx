@@ -1,7 +1,7 @@
 import React from 'react';
-import Header from '../Header/Header';
+import Header from '../Header/header';
 import Button from 'react-bootstrap/Button';
-import './OrderSucces.css';
+import './orderSucces.css';
 import ContactTable from './contact';
 
 
@@ -12,7 +12,7 @@ export default class OrderSucess extends React.Component {
     render() {
         return (
             <>  
-            <Header/>
+            <Header displayDetail={true}/>
             <div className="books-wrapper">
             <div className="success-wrapper">
                 <div className="success-decoration">

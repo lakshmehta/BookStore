@@ -2,9 +2,9 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Popper from '@material-ui/core/Popper';
 import PermIdentityIcon from '@material-ui/icons/PermIdentity';
-import MarkunreadMailboxOutlinedIcon from '@material-ui/icons/MarkunreadMailboxOutlined';
-import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
-import './Profile.css'
+// import MarkunreadMailboxOutlinedIcon from '@material-ui/icons/MarkunreadMailboxOutlined';
+// import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
+import './profile.css'
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop:"8%",
@@ -39,17 +39,17 @@ export default function SimplePopper() {
           <div className="profmaindiv">
             Welcome
             <p>To access account and manage orders</p>
-            <button className="profbtn" onClick={signOut}>SIGNOUT</button>
+            <button className="profbtn" style={{cursor:'pointer'}} onClick={signOut}>SIGNOUT</button>
           </div>
           <div className="horizoantalline"><hr/></div>
-          <div className="profstore">
+          {/* <div className="profstore">
             <MarkunreadMailboxOutlinedIcon style={{fontSize:"15", color:"gray"}} />
             <p>My orders</p>
           </div>
           <div className="profwish">
             <FavoriteBorderOutlinedIcon style={{fontSize:"15", color:"gray"}} />
             <p>Wishlist</p>
-          </div>
+          </div> */}
         </div>
       </Popper>
     </>

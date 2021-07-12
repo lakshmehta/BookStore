@@ -4,8 +4,8 @@ import { BrowserRouter as Router, Route,Switch} from 'react-router-dom';
 import Dashboard from './Pages/Dashboard';
 import ProtectedRoute from './components/Protected/protected';
 import AuthRoute from './components/Protected/auth';
-import MyCartBag from './components/Cart/MyCartBag';
-import OrderSucess from './components/Order/OrderSucces';
+import MyCartBag from './components/Cart/myCartBag';
+import OrderSucess from './components/Order/orderSucces';
 function App() {
   return (
     <Router>

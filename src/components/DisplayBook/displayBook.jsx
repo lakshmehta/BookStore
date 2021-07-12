@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import "./DisplayB.css";
+import "./displayBook.css";
 // import Select from '@material-ui/core/Select';
 // import MenuItem from '@material-ui/core/MenuItem';
 // import InputLabel from '@material-ui/core/InputLabel';
 // import FormControl from '@material-ui/core/FormControl';
 import UserService from "../../Services/userService";
 import BookOne from "../../assets/Image 11.png";
-import PaginationBar from "./PaginationBar";
+import PaginationBar from "./paginationBar";
 import Backdrop from "@material-ui/core/Backdrop";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { withStyles } from "@material-ui/core/styles";
@@ -101,11 +101,9 @@ const styles = theme => ({
 }
 
   render() {
-      const { classes } = this.props;
+    const { classes } = this.props;
     const LastBook = this.state.currentPage * this.state.postsPerPage;
     const FirstBook = LastBook - this.state.postsPerPage;
-    // console.log(this.state._books);
-    // console.log("vfvc", this.state._books);
     const currentBooks = this.props.searchBook? this.props.searchedData.slice(FirstBook, LastBook) : this.state._books.slice(FirstBook, LastBook);   
     return (
       <>

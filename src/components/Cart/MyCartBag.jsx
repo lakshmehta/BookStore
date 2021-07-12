@@ -1,13 +1,12 @@
 /* eslint-disable array-callback-return */
 import React from "react";
-import Header from "../Header/Header";
-import "./MyCartBag.css";
+import Header from "../Header/header";
+import "./myCartBag.css";
 import UserService from "../../Services/userService";
 import AddCircleOutlineTwoToneIcon from "@material-ui/icons/AddCircleOutlineTwoTone";
 import RemoveCircleOutlineTwoToneIcon from "@material-ui/icons/RemoveCircleOutlineTwoTone";
 import { TextField, Button } from "@material-ui/core";
 import Dont from "../../assets/Image 11.png";
-import Footer from "../Footer/Footer";
 
 const service = new UserService();
 
@@ -225,7 +224,7 @@ class MyCartBag extends React.Component {
   render() {
     return (
       <>
-        <Header show={false} cartBook={this.state._cartbooks.length} />
+        <Header show={false} cartBook={this.state._cartbooks.length} displayDetail={true}/>
 
         <div className="cartcontent">
           {" "}
@@ -428,7 +427,7 @@ class MyCartBag extends React.Component {
           <br></br>
           <br></br>
         </div>
-        <Footer style={{ position: "absolute" }} />
+        {/* <Footer style={{ position: "absolute" }} /> */}
       </>
     );
   }

@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-import "./BookDetail.css";
+import "./bookDetail.css";
 import Book from "../../assets/Image 11.png";
 import image from "../../assets/Image 11@2x.png";
-import CustomerFeedback from "./CustomerFeed";
+import CustomerFeedback from "./customerFeed";
 import UserService from "../../Services/userService";
 import Backdrop from "@material-ui/core/Backdrop";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { withStyles } from "@material-ui/core/styles";
-
+import {withRouter} from 'react-router'
 
 const service= new UserService();
 const styles = theme => ({
@@ -22,13 +22,14 @@ const styles = theme => ({
     this.state = {
         inputQuantity: true,
         getCart: [],
-        cartId:""
+        cartId:"",
+        pen:false
     }
 }
   componentDidMount() {
-    this.gtCart();
+    this.handleGetCart();
 }
-gtCart=()=>{
+handleGetCart=()=>{
   service.getCartItems().then((res) => {
     console.log("getCart",res);
     // if(this.state.cartId === res.data.result.product_id._id){
@@ -37,12 +38,14 @@ gtCart=()=>{
     console.log("getCartdata",this.state.getCart);
 })
 }
+pushToCart=()=>{
+  this.props.history.push('/cart')
+}
 addedtoCart = (value) => {
   this.setState({ inputQuantity: !this.state.inputQuantity })
   let data = {
     isCart: true
   }
-  // let token = localStorage.getItem('Token')
   console.log(value);
   this.handleToggle();
   service.addToCartBook(data, value._id).then((res) => {
@@ -51,6 +54,7 @@ addedtoCart = (value) => {
     this.setState({ cartId: value._id })
     console.log("cartId", this.state.cartId);
     this.handleClose();
+    this.pushToCart();
   })
     .catch((err) => {
       this.handleClose();
@@ -66,14 +70,14 @@ handleClose = (event, reason) => {
 handleToggle = () => {
   this.setState({ pen: !this.state.pen });
 };
-increment = (productid, quantity) => {
+handleIncrement = (productid, quantity) => {
   let data = {
       "quantityToBuy": quantity + 1
   }
   console.log(data, productid);
   console.log("Quantity",quantity);
   service.cartIncrementDecrement(data, productid).then((res) => {
-      this.gtCart();
+      this.handleGetCart();
       console.log(res);
   }).catch((err) => {
       console.log(err);
@@ -85,7 +89,7 @@ decrement = (productid, quantity) => {
   }
   if(data.quantityToBuy>1){
   service.cartIncrementDecrement(data, productid).then((res) => {
-      this.gtCart();
+      this.handleGetCart();
       console.log(res);
   }).catch((err) => {
       console.log(err);
@@ -128,12 +132,9 @@ decrement = (productid, quantity) => {
               >
                 Add To Bag
               </button> : <><div className="addOrRemove">
-              {/* {this.state.getCart.map((value,index)=>{ */}
-              {/* return ( <> */}
-              {/* {value._id === this.props.displayBookDetails._id ? <> */}
-              <button
+              {/* <button
                 className="addbtn" 
-                style={{ opacity: 0.4, cursor:"pointer" }} onClick={()=>this.increment(this.props.displayDetail._id, this.props.displayDetail.quantityToBuy)}
+                style={{ opacity: 0.4, cursor:"pointer" }} onClick={()=>this.handleIncrement(this.props.displayDetail._id, this.props.displayDetail.quantityToBuy)}
                 >
                 +
               </button>
@@ -142,11 +143,7 @@ decrement = (productid, quantity) => {
                 onClick={() => this.decrement(this.props.displayDetail._id, this.props.displayDetail.quantityToBuy)} 
                 >
                 -
-              </button>
-              {/* </>: null */}
-              {/* } */}
-              {/* </>) */}
-              {/* })} */}
+              </button> */}
               </div></>
               }
               <button className="addwishlist">
@@ -182,13 +179,13 @@ decrement = (productid, quantity) => {
                   </span>
                   <span className="price">
                     <strike>
-                      {/* Rs.{this.props.displayDetail.price} */}
                     </strike>
                   </span>
                 </div>
               </div>
             </div>
             <div className="horizoantalline">
+            {" "}
               <hr></hr>
             </div>
             <div className="desc-book">
@@ -205,7 +202,6 @@ decrement = (productid, quantity) => {
                 cum libero repellat voluptates quia sapiente quos.
               </div>
             </div>
-
             <div className="horizoantalline">
               {" "}
               <hr></hr>
@@ -214,9 +210,6 @@ decrement = (productid, quantity) => {
               <span className="feedback">Customer Feedback</span>
                 <CustomerFeedback/>
             </div>
-            <div className="reviews">
-              
-            </div>
           </div>
         </div>
   }
@@ -224,4 +217,4 @@ decrement = (productid, quantity) => {
     );
   }
 }
-export default withStyles(styles)(BookDeatail)
+export default withRouter(withStyles(styles)(BookDeatail))

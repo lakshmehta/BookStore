@@ -1,13 +1,14 @@
 /* eslint-disable array-callback-return */
-import React, { Component } from 'react'
-import Header from '../components/Header/Header'
-import DisplayBook from '../components/Displayb/DisplayB'
-import BookDeatail from '../components/BookDetails/BookDeatail'
-import { withRouter } from 'react-router'
-import UserService from '../Services/userService'
-
+import React, { Component } from 'react';
+import Header from '../components/Header/header';
+import DisplayBook from '../components/DisplayBook/displayBook';
+import BookDeatail from '../components/BookDetails/bookDetail';
+import { withRouter } from 'react-router';
+import UserService from '../Services/userService';
 // const service= new UserService();
- class Dashboard extends Component {
+
+
+class Dashboard extends Component {
     constructor(props){
         super(props)
         this.state={
@@ -17,6 +18,7 @@ import UserService from '../Services/userService'
             SearchedData:[],
             searchBook:false,
             showBooks:[],
+            show:true
         }
     }
     onClickBookDetails=(value)=>{
@@ -60,12 +62,15 @@ import UserService from '../Services/userService'
       this.setState({SearchedData: array })
       console.log("Array outside ", array)
   }
+  handleShow=()=>{
+      this.setState({show:!this.state.show})
+  }
     render() {
         return (
             <div>
-                <Header openCart={this.openCart} handleSearchBook={this.handleSearchBook} searchBook={this.state.searchBook}/>
-                {this.state.selectedBook ? <BookDeatail displayDetail={this.state.selectedBook}/>
-                :    <DisplayBook searchBook={this.state.searchBook} getBook={this.getBook} searchedData={this.state.SearchedData} search={this.state.search} bookDetail={this.onClickBookDetails}/>
+                <Header openCart={this.openCart} handleSearchBook={this.handleSearchBook} displayDetail={this.state.selectedBook} searchShow={this.state.show} searchBook={this.state.searchBook}/>
+                {this.state.selectedBook ? <BookDeatail  handleShow={this.handleShow} displayDetail={this.state.selectedBook}/>
+                :    <DisplayBook searchBook={this.state.searchBook}  getBook={this.getBook} searchedData={this.state.SearchedData} search={this.state.search} bookDetail={this.onClickBookDetails}/>
                 }
             </div>
         )
