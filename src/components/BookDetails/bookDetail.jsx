@@ -28,15 +28,26 @@ const styles = theme => ({
 }
   componentDidMount() {
     this.handleGetCart();
+    console.log(this.props.location,"laklsh mehta");
 }
 handleGetCart=()=>{
   service.getCartItems().then((res) => {
     console.log("getCart",res);
-    // if(this.state.cartId === res.data.result.product_id._id){
         this.setState({ getCart: res.data.result });
-    // }
+    
     console.log("getCartdata",this.state.getCart);
 })
+}
+handleCartItem=(id)=>{
+  let bookInCart= this.state.getCart.find(function(value){
+    if(value.product_id._id === id){
+      console.log("book in bag method" )
+      return true;
+    }else{
+      return false;
+    }
+  })
+  return bookInCart;
 }
 pushToCart=()=>{
   this.props.history.push('/cart')
@@ -51,6 +62,7 @@ addedtoCart = (value) => {
   service.addToCartBook(data, value._id).then((res) => {
     console.log(value);
     console.log(res);
+    this.handleGetCart();
     this.setState({ cartId: value._id })
     console.log("cartId", this.state.cartId);
     this.handleClose();
@@ -70,37 +82,11 @@ handleClose = (event, reason) => {
 handleToggle = () => {
   this.setState({ pen: !this.state.pen });
 };
-handleIncrement = (productid, quantity) => {
-  let data = {
-      "quantityToBuy": quantity + 1
-  }
-  console.log(data, productid);
-  console.log("Quantity",quantity);
-  service.cartIncrementDecrement(data, productid).then((res) => {
-      this.handleGetCart();
-      console.log(res);
-  }).catch((err) => {
-      console.log(err);
-  })
-}
-decrement = (productid, quantity) => {
-  let data = {
-      "quantityToBuy": quantity - 1
-  }
-  if(data.quantityToBuy>1){
-  service.cartIncrementDecrement(data, productid).then((res) => {
-      this.handleGetCart();
-      console.log(res);
-  }).catch((err) => {
-      console.log(err);
-  })}
-  else{
-      console.log("The Rock")
-  }
-}
+
   render() {
+    console.log(this.props,"props in book detail");
     const { classes } = this.props;
-    console.log(this.props.displayDetail, "display details");
+    console.log(this.props.location.displayDetail, "display details");
     return (
       <>
       {this.state.pen ?
@@ -127,28 +113,23 @@ decrement = (productid, quantity) => {
               </div>
             </div>
             <div className="wishlist">
-              {this.state.inputQuantity ? <button
+              {this.handleCartItem(this.props.displayDetail._id) ?
+               <button
+               className="addedtobag"
+               >
+                 Added To Bag
+               </button>
+                 :
+              <button
               className="addtobag" onClick={()=>this.addedtoCart(this.props.displayDetail)}
               >
                 Add To Bag
-              </button> : <><div className="addOrRemove">
-              {/* <button
-                className="addbtn" 
-                style={{ opacity: 0.4, cursor:"pointer" }} onClick={()=>this.handleIncrement(this.props.displayDetail._id, this.props.displayDetail.quantityToBuy)}
-                >
-                +
               </button>
-              <button
-                className="addbtn" 
-                onClick={() => this.decrement(this.props.displayDetail._id, this.props.displayDetail.quantityToBuy)} 
-                >
-                -
-              </button> */}
-              </div></>
+            
               }
-              <button className="addwishlist">
+              {/* <button className="addwishlist">
                 <i class="zmdi zmdi-favorite"></i> <span>WishList</span>
-              </button>
+              </button> */}
               </div>
           </div>
           <div className="details">

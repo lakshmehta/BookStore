@@ -1,22 +1,22 @@
 import AxiosService from './Axios_Service';
 
-const axios = new AxiosService();
+const axios_service = new AxiosService();
 
 export default class UserService {
-    baseUrl = "https://new-bookstore-backend.herokuapp.com/";
+    baseUrl = "https://new-bookstore-backend.herokuapp.com/bookstore_user";
 
     userRegistration = (data) => {
-        return axios.postMethod(`${this.baseUrl}bookstore_user/registration`, data);
+        return axios_service.postMethod(`${this.baseUrl}/registration`, data);
     }
 
     userlogin = (data) => {
-        return axios.postMethod(`${this.baseUrl}bookstore_user/login`, data);
+        return axios_service.post(`${this.baseUrl}/login`, data);
     }
     getAllBooks = ()=>{
-        return axios.getMethod(`${this.baseUrl}bookstore_user/get/book`)       
+        return axios_service.get(`${this.baseUrl}/get/book`)       
     }
     cartQuantity = (data, product_id) => {
-        return axios.putMethod(`${this.baseUrl}bookstore_user/cart_item_quantity/${product_id}`,data,{
+        return axios_service.put(`${this.baseUrl}/cart_item_quantity/${product_id}`,data,{
             headers: {
                 'x-access-token': localStorage.getItem('usertoken')
             }
@@ -24,8 +24,7 @@ export default class UserService {
     }
 
     addToCartBook = (data, product_id) => {
-        console.log(product_id,data,"axios service");
-        return axios.postMethod(`${this.baseUrl}bookstore_user/add_cart_item/${product_id}`,data,{
+        return axios_service.post(`${this.baseUrl}/add_cart_item/${product_id}`,data,{
             headers: {
                 'x-access-token': localStorage.getItem('usertoken')
             }
@@ -33,7 +32,7 @@ export default class UserService {
     }
 
     getCartItems = () => {
-        return axios.getMethod(`${this.baseUrl}bookstore_user/get_cart_items`,{
+        return axios_service.get(`${this.baseUrl}/get_cart_items`,{
             headers: {
                 'x-access-token': localStorage.getItem('usertoken')
             }
@@ -41,14 +40,14 @@ export default class UserService {
     }
 
     cartIncrementDecrement=(data,cartItem_id)=>{
-        return axios.putMethod(`${this.baseUrl}bookstore_user/cart_item_quantity/${cartItem_id}`,data,{
+        return axios_service.put(`${this.baseUrl}/cart_item_quantity/${cartItem_id}`,data,{
             headers:{
                 'x-access-token' :localStorage.getItem('usertoken'),
             } 
         })     
     }
     userDetails=(data)=>{
-        return axios.putMethod(`${this.baseUrl}bookstore_user/edit_user`,data,{
+        return axios_service.put(`${this.baseUrl}/edit_user`,data,{
             headers:{
                 'x-access-token' :localStorage.getItem('usertoken'),
             } 
@@ -57,18 +56,23 @@ export default class UserService {
     }
 
    order=(data)=>{
-        console.log(localStorage.getItem('usertoken'));
-        return axios.postMethod(`${this.baseUrl}bookstore_user/add/order`,data,{
+        return axios_service.post(`${this.baseUrl}/add/order`,data,{
             headers:{
                 'x-access-token':localStorage.getItem('usertoken'),
             }
         });
     }
     removeCartItem=(id)=>{
-        console.log(id);
-        return axios.deleteMethod(`${this.baseUrl}bookstore_user/remove_cart_item/${id}`,{
+        return axios_service.delete(`${this.baseUrl}/remove_cart_item/${id}`,{
             headers:{
                 'x-access-token':localStorage.getItem('usertoken'),
+            }
+        });
+    }
+    addToWishList=()=>{
+        return axios_service.post(` ${this.baseUrl}/add_wish_list/${product_id}`,null,{
+            headers:{
+                'x-access-token':localStorage.getItem('usertoken')
             }
         });
     }

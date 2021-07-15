@@ -231,7 +231,7 @@ class MyCartBag extends React.Component {
           <span className="Home">Home/MyCart</span>
           <div className="cartitems box">
             <div className="mycart">
-              {" "}
+              {/* {" "} */}
               My Cart({this.state._cartbooks.length})
             </div>
 
@@ -289,7 +289,7 @@ class MyCartBag extends React.Component {
             })}
           </div>
           <div className="customerdetails box">
-            <div>Customer Details </div>
+            <div>Customer Details</div>
             {this.state.show ? (
               <>
                 {" "}
@@ -384,7 +384,7 @@ class MyCartBag extends React.Component {
             ) : null}
           </div>
           <div className="cartitems box">
-            <div className="mycart"> Ordersummary</div>
+            <div className="mycart"> Order summary</div>
             {this.state.showOs ? (
               <>
                 {" "}

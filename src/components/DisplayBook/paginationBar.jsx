@@ -12,7 +12,7 @@ export default class PaginationBar extends Component {
             <>
                 <div className="paginationBlock" >
                         <Paginations
-                            count={Math.floor(this.props._books.length / this.props.postsPerPage + 1)}
+                            count={Math.floor(this.props.bookArray.length / this.props.postsPerPage + 1)}
                             variant="outlined"
                             shape="rounded"
                             color="secondary"

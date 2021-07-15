@@ -48,11 +48,10 @@ class Header extends Component {
                 onChange={(e) => this.handleChange(e.target.value)}
               />
             </div>}
-          </div>
-          <div>
+            </div>
+          <div className="icons">
             <div className="pro">
-              {/* <PermIdentityIcon className="proicon"/> */}
-              <ProfilePopper />
+               <ProfilePopper />
               Profile
             </div>
             <div className="cart">
@@ -66,9 +65,9 @@ class Header extends Component {
                   onClick={this.handleClick}
                 />
               </Badge>
-              Cart
+              Cart 
             </div>
-          </div>
+          </div> 
         </div>
       </>
     );

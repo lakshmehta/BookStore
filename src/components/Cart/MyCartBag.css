@@ -7,11 +7,11 @@
     justify-content: flex-start;
     align-items: flex-start;
     font-family: Roboto;
-    margin: 0 15.5%;
+    margin-left: 10%;
     padding: 30px;
 }
 .cartcontent .mycart {
-    margin-top: 20px;
+    margin-top: 10px;
     font-size: 20px;
 }
 .cartcontent .Home {
@@ -25,20 +25,20 @@
     color: #0a0102;
     opacity: 1;
 }
-.cartcontent .cartitems .part1 {
+.part1 {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 }
-.cartcontent .cartitems .part1 .container {
+.container {
     width: auto;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 }
-.cartcontent .cartitems .part1 .container .items {
+.items {
     padding: 10px;
 }
 .cartcontent .cartitems .part1 .container .items .author {

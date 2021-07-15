@@ -1,6 +1,6 @@
 .usercontent {
     width: max-width;
-    height: 100vh;
+    min-height: 100vh;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -18,30 +18,41 @@
     align-items: center;
 }
 .headers {
-    margin-left: 15px;
+    margin-left: -52px;
     width: 70px;
     height: 33px;
     text-align: left;
     font: normal normal normal 25px/33px Roboto;
     font-family: normal normal normal Roboto;
+    display: flex;
 }
-/* .select{
-    width: 161px;
-    height: 30px;
-    border: 1px solid #E2E2E2;
-    border-radius: 1px;
-} */
+.headers span{
+    color:grey;
+    font-size: 13px;
+    margin-top: 4px;
+}
+.select{
+    width: 150px;
+    height: 25px;
+    margin-right: -35px;
+    /* borde0: 1px solid #E2E2E2;
+    border-radius: 1px; */
+}
 #demo-simple-select-outlined {
     width: 113px;
     height: 5px;
     
 }
+
 .books {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+    width: 110%;
+    margin-left: -6%;
+    margin-top: 3%;
 }
 .showbooks {
     width: 235px;;
