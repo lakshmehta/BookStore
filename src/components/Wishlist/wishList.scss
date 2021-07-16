@@ -1,0 +1,80 @@
+@mixin flex($display,$justify, $direction, $width, $height, $margintop) {
+    margin-top: $margintop;
+    display: $display;
+    flex-direction: $direction;
+    justify-content: $justify;
+    height: $height;
+    width: $width;
+}
+$border: 1px solid #d9cccc;
+.main-container{
+    @include flex(flex, center, column, null, 100%,100vh);
+    align-items: center;
+}
+.title1 {
+    width: 81%;
+}
+
+.cartBag-content1 {
+    width: 78%;
+    min-height: 223px;
+    border: 1px solid #d9cccc;
+    margin-top: 20px;
+    margin-bottom: 298px;
+}
+.heading-wishlist {
+    @include flex(flex, center, column, null, 58px, null);
+    padding-left: 38px;
+    border: $border;
+}
+.main-cart1{
+    border: $border;
+    display: flex;
+    height: 200px;
+}
+.text-content1 {
+    width: 180px;
+    width: 86%;
+    display: flex;
+    height: 150px;
+}
+.bag-text1 {
+    @include flex(flex, space-evenly, column, 687px, 161px, null);
+}
+.cart-title1 {
+    font-weight: 600;
+    font-size: 20px;
+}
+.cart-bookAuthor1 {
+    font-size: 15px;
+    height: 12px;
+    color: #a49595;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+.price1 {
+    font-weight: bold;
+}
+.popup{
+    width: 12% !important;
+    padding: 10% !important;
+}
+
+.btn-content1 {
+    display: flex;
+    justify-content: flex-end;
+     margin-top: -10px;
+    height: 48px;
+    width: 207px;
+    padding: 10px;
+}
+.btn-place1 {
+    background-color: #3371b5 !important;
+    color: white !important;
+    font-size: 8px;
+    
+}
+.btn-move{
+    font-size: 7px;
+    font-weight: bolder;
+}

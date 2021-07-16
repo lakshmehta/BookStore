@@ -2,7 +2,7 @@
     margin-top: 6%;
     width: 70%;
     height: 100vh;
-    margin-left: 170px;
+    margin-left: 180px;
     background: #FFFFFF 0% 0% no-repeat padding-box;
     opacity: 1;
     display: flex;
@@ -10,7 +10,7 @@
     color : black;
 }
 .container{
-    width: 40%;
+    width: 80%;
     height: 60%;
     display: flex;
     flex-direction: column;
@@ -25,7 +25,7 @@
 .twoimg-comtainer{
     display: flex;
     flex-direction: column;
-    width: 16%;
+    width: 26%;
     height: 35%;
 }
 .imgsmall1{
@@ -55,25 +55,26 @@
 }
 .mainimg{
     height: 100%;
-    width:80%;
-    display: flex;
-    flex-direction: column;
+    width: 130% !important;;
+    /* display: flex; */
+    /* flex-direction: column; */
     align-items: center;
     justify-content: center;
     border: 1px solid grey;
 }
 .bigimg{
-    width: 74%;
-    height: 85%;
+    width: 90%;
+    height: 95%;
+    margin:10px 10px;
 }
 .wishlist{
-    width : 84%;
+    width : 100%;
     height : 10%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-items: center;
-    margin-left: 14%;
+    margin-left: 30%;
 }
 .addtobag{
     border : none;
@@ -84,18 +85,15 @@
     width :40%;
     border-radius: 1px;
     cursor: pointer;
-}
-.addedtobag{
-    height : 100%;
-    width :100%;
-    border-radius: 2px;
+} 
+.added{
+    height : 80%;
+    width :40%;
+    border-radius: 5px;
     display: flex;
-    color: #f5f5f5;
-    background: #3371B5 0% 0% no-repeat padding-box;
     flex-direction: row;
-    align-items: center; 
+    align-items: center;
     justify-content: space-around;
-    border: none;
 }
 .addbtn{
     width : 30%;
@@ -114,7 +112,7 @@
     height : 130%;
     width :40%;
     border-radius: 1px;
-    margin-left: 13%;
+    margin-left: 7%;
     cursor: pointer;
 }
 .details{
@@ -123,6 +121,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-left: 10px;
 }
 .bookdetail{
     width : 80%;

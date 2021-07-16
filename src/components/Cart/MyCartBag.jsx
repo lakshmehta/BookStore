@@ -289,7 +289,7 @@ class MyCartBag extends React.Component {
             })}
           </div>
           <div className="customerdetails box">
-            <div>Customer Details</div>
+            <div className="mycart" >Customer Details</div>
             {this.state.show ? (
               <>
                 {" "}

@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import AxiosService from './Axios_Service';
 
 const axios_service = new AxiosService();
@@ -69,12 +70,26 @@ export default class UserService {
             }
         });
     }
-    addToWishList=()=>{
+    addToWishList=(product_id)=>{
         return axios_service.post(` ${this.baseUrl}/add_wish_list/${product_id}`,null,{
             headers:{
                 'x-access-token':localStorage.getItem('usertoken')
             }
         });
+    }
+    getWishList=()=>{
+        return axios_service.get(`${this.baseUrl}/get_wishlist_items/`,{
+            headers:{
+                'x-access-token':localStorage.getItem('usertoken'),
+            }
+        })
+    }
+    removeFromWishList=()=>{
+        return axios_service.delete(`${this.baseUrl}/remove_wishlist_item/${id}`,{
+            headers:{
+                'x-access-token':localStorage.getItem('usertoken'),
+            }
+        })
     }
 }
 
