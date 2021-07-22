@@ -1,5 +1,5 @@
 import React from 'react'
-import "./BookDetail.css";
+import "./bookDetail.css";
 
 class CustomerFeedback extends React.Component {
     constructor(props) {

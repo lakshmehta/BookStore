@@ -1,13 +1,12 @@
 /* eslint-disable array-callback-return */
 import React from "react";
-import Header from "../Header/Header";
-import "./MyCartBag.css";
+import Header from "../Header/header";
+import "./myCartBag.css";
 import UserService from "../../Services/userService";
 import AddCircleOutlineTwoToneIcon from "@material-ui/icons/AddCircleOutlineTwoTone";
 import RemoveCircleOutlineTwoToneIcon from "@material-ui/icons/RemoveCircleOutlineTwoTone";
 import { TextField, Button } from "@material-ui/core";
 import Dont from "../../assets/Image 11.png";
-import Footer from "../Footer/Footer";
 
 const service = new UserService();
 
@@ -102,15 +101,13 @@ class MyCartBag extends React.Component {
     return valid;
   };
 
-  componentDidMount() {
+  componentDidMount(){
     this.gettingCart();
   }
   gettingCart = () => {
     service.getCartItems().then((res) => {
       console.log(res);
       this.setState({ _cartbooks: res.data.result });
-      console.log(this.state._cartbooks.length, "array length");
-      // console.log(JSON.stringify(this.state._cartbooks));
     });
   };
   changeState = (e) => {
@@ -225,14 +222,14 @@ class MyCartBag extends React.Component {
   render() {
     return (
       <>
-        <Header show={false} cartBook={this.state._cartbooks.length} />
+        <Header show={false} cartBook={this.state._cartbooks.length} displayDetail={true}/>
 
         <div className="cartcontent">
           {" "}
           <span className="Home">Home/MyCart</span>
           <div className="cartitems box">
             <div className="mycart">
-              {" "}
+              {/* {" "} */}
               My Cart({this.state._cartbooks.length})
             </div>
 
@@ -290,7 +287,7 @@ class MyCartBag extends React.Component {
             })}
           </div>
           <div className="customerdetails box">
-            <div>Customer Details </div>
+            <div className="mycart" >Customer Details</div>
             {this.state.show ? (
               <>
                 {" "}
@@ -385,7 +382,7 @@ class MyCartBag extends React.Component {
             ) : null}
           </div>
           <div className="cartitems box">
-            <div className="mycart"> Ordersummary</div>
+            <div className="mycart"> Order summary</div>
             {this.state.showOs ? (
               <>
                 {" "}
@@ -428,7 +425,7 @@ class MyCartBag extends React.Component {
           <br></br>
           <br></br>
         </div>
-        <Footer style={{ position: "absolute" }} />
+        {/* <Footer style={{ position: "absolute" }} /> */}
       </>
     );
   }

@@ -1,6 +1,6 @@
 .usercontent {
     width: max-width;
-    height: 89.4vh;
+    min-height: 100vh;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -18,30 +18,39 @@
     align-items: center;
 }
 .headers {
-    margin-left: 15px;
+    margin-left: -52px;
     width: 70px;
     height: 33px;
     text-align: left;
     font: normal normal normal 25px/33px Roboto;
     font-family: normal normal normal Roboto;
+    display: flex;
 }
-/* .select{
-    width: 161px;
-    height: 30px;
-    border: 1px solid #E2E2E2;
-    border-radius: 1px;
-} */
-#demo-simple-select-outlined {
+.headers span{
+    color:grey;
+    font-size: 13px;
+    margin-top: 4px;
+}
+.select{
+    width: 130px;
+    height: 40px; 
+    margin-right: -35px;
+}
+/* #demo-simple-select-outlined {
     width: 113px;
-    height: 5px;
+    height: 65px;
     
-}
+} */
+
 .books {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+    width: 110%;
+    margin-left: -6%;
+    margin-top: 3%;
 }
 .showbooks {
     width: 235px;;
@@ -157,32 +166,36 @@
     color: white;
 }
 .paginationBlock {
-    margin-left: 27%;
-    margin-top: 47%;
-    position:absolute;
+    margin-left: 42%;
+    margin-top: 10%;
+    position:relative;
 }
-@media screen and (max-width: 600px){
-    .showbooks {
-        width: auto;
-        height: auto;
-    }
+@media screen  and (min-width: 360px) and (max-width: 600px){
+    .usercontent{
+        width:-4%;
+    } 
     .headers{
-        margin-left: 80px;
-    }   
-}
-@media screen and (min-width: 360px) {
+        font-size: 19px;
 
-    /* .paginationBlock {
-     margin-top: 600%;
-     margin-left: 30px;
-    } */
-    .showbooks {
-        width: auto;
-        height: auto;
     }
-    .headers {
-        justify-content: center;
-        text-align: center;
-        margin-left: 80px;
-    }    
+    .headers span{
+        font-size: 12px;
+        margin-bottom: -5px;
+    }
+    .inlineheader{
+        width: 100%;
+        justify-content: space-around;
+    }
+    .select{
+        height: 35px;
+    }
+   .books{
+       width: -40px !important;
+       height: -80px !important;
+       margin-left: -4%;
+   }
+   
+   .paginationBlock {
+    margin-left: 12%;
+   }
 }

@@ -1,17 +1,12 @@
-import React, { Component } from "react";
-import "./DisplayB.css";
-// import Select from '@material-ui/core/Select';
-// import MenuItem from '@material-ui/core/MenuItem';
-// import InputLabel from '@material-ui/core/InputLabel';
-// import FormControl from '@material-ui/core/FormControl';
+import React, { Component,Profiler } from "react";
+import "./displayBook.css";
 import UserService from "../../Services/userService";
 import BookOne from "../../assets/Image 11.png";
-import PaginationBar from "./PaginationBar";
+import PaginationBar from "./paginationBar";
 import Backdrop from "@material-ui/core/Backdrop";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { withStyles } from "@material-ui/core/styles";
-// import Footer from "../Footer/Footer";
-
+import Footer from '../Footer/footer';
 const service = new UserService();
 const styles = theme => ({
     backdrop: {
@@ -24,7 +19,7 @@ const styles = theme => ({
   constructor(props) {
     super(props);
     this.state = {
-      _books: [],
+      bookArray: [],
       _cartBooks: [],
       postsPerPage: "8",
       currentPage: "1",
@@ -65,7 +60,15 @@ const styles = theme => ({
   componentDidMount(){
     this.GetAllBooks();
   }
-  
+  profiler = (id,phase,actualDuration,baseDuration,startTime,commitTime,interactions) => {
+    console.log(`${id}`)
+    console.log(`phase:${phase}`);
+    console.log(`Actual time: ${actualDuration}`);
+    console.log(`Base time: ${baseDuration}`);
+    console.log(`Start time: ${startTime}`);
+    console.log(`Commit time: ${commitTime}`);
+    console.log(`Interactions: ${interactions}`);
+}
   GetAllBooks = () => {
     var books = [];
     this.handleToggle();
@@ -74,7 +77,7 @@ const styles = theme => ({
       .then((res) => {
         books = res.data.result;
         var boo = this.storeBooks(books);
-        this.setState({ _books: boo });
+        this.setState({ bookArray: boo });
         this.props.getBook(books)
         this.handleClose()
       })
@@ -86,27 +89,49 @@ const styles = theme => ({
   getBooks = () => {
     console.log("rerender");
     this.setState({
-      _books: this.getBooks(),
+      bookArray: this.getBooks(),
     });
   };
   openBookDetails = (value) => {
     console.log(value, "select book");
+    // this.props.onClickHandle(value);
     this.props.bookDetail(value);
   };
   search = () =>{
     if(this.props.searchedData !== []){
-       this.setState({ _books:this.props.searchedData});
+       this.setState({ bookArray:this.props.searchedData});
    }
 
 }
-
+handleSorting=(e)=>{
+    console.log("sort")
+    if(e.target.value === "dsec"){
+      let sortData=[...this.state.bookArray].sort(function(variableX,variableY){
+        return variableY.price-variableX.price
+      })
+      this.setState({bookArray:sortData})
+    }
+    else if(e.target.value === "asec"){
+    let sortData=[...this.state.bookArray].sort(function(variableX,variableY){
+      return variableX.price-variableY.price
+    })
+    this.setState({bookArray:sortData})
+    }
+    else if(e.target.value==="alp-asec"){
+      let sortData=[...this.state.bookArray].sort(function(variableX,variableY){
+        if(variableX.bookName<variableY.bookName){
+          return -1;
+        }
+        return 0;
+      })
+      this.setState({bookArray:sortData})
+    }
+  } 
   render() {
-      const { classes } = this.props;
+    const { classes } = this.props;
     const LastBook = this.state.currentPage * this.state.postsPerPage;
     const FirstBook = LastBook - this.state.postsPerPage;
-    // console.log(this.state._books);
-    // console.log("vfvc", this.state._books);
-    const currentBooks = this.props.searchBook? this.props.searchedData.slice(FirstBook, LastBook) : this.state._books.slice(FirstBook, LastBook);   
+    const currentBooks = this.props.searchBook? this.props.searchedData.slice(FirstBook, LastBook) : this.state.bookArray.slice(FirstBook, LastBook);   
     return (
       <>
        {this.state.pen ?
@@ -116,33 +141,20 @@ const styles = theme => ({
           onClick={this.handleClose}
         >
           <CircularProgress color="inherit" />
-        </Backdrop>:
+        </Backdrop>:<>
         <div className="usercontent">
           <div className="inlineheader">
-            <div className="headers">Books</div>
-             <div className="select">
-             {/* <select style={{ width: '157px', height: '47px' }} onChange={(e) => this.sortByPrice(e)} >
+            <div className="headers">
+              Books 
+              <span>({this.props.searchBook ? <span>{this.props.searchedData.length}</span>:<span>{this.state.bookArray.length}</span>}items)</span>
+            </div>
+             <div >
+             <select className="select" onChange={(e)=>this.handleSorting(e)} >
                 <option selected >Sort by relevance</option>
                 <option value="dsec" >Price: high to low</option>
                 <option value="asec"  >Price: low to high</option>
                 <option value="alp-asec" >Sort By: (A-Z)</option>
-              </select> */}
-                            {/*<FormControl variant="outlined" >
-                                <InputLabel id="demo-simple-select-filled-label">sortbyrelevance</InputLabel>
-                                <Select
-                                    labelId="demo-simple-select-outlined-label"
-                                    id="demo-simple-select-outlined"
-                                    value={this.state.age}
-                                    onChange={this.handleChange}
-                                    label="Age"
-                                >
-                                    <MenuItem value="">
-                                        <em>None</em>
-                                    </MenuItem>
-                                    <MenuItem value={10}>Price : low to high</MenuItem>
-                                    <MenuItem value={20}>Price : high to low</MenuItem>
-                                </Select>
-                            </FormControl>*/}
+              </select> 
               </div> 
           </div>
           <div className="books" onClick={this.redirect}>
@@ -150,7 +162,7 @@ const styles = theme => ({
               return (
                 <div
                   className="showbooks"
-                  onClick={() => this.openBookDetails(book)}
+                  onClick={()=>this.openBookDetails(book)}
                 >
                   <div className="bookimage">
                     <img src={BookOne} alt="" />
@@ -169,74 +181,19 @@ const styles = theme => ({
           </div>
 
           <PaginationBar
-            _books={this.state._books}
+            bookArray={this.props.searchBook ? this.props.searchedData : this.state.bookArray}
             postsPerPage={this.state.postsPerPage}
             currentPage={this.state.currentPage}
             changepage={this.changepage}
           />
-           {/* <Footer/> */}
+         
         </div>
-       
+        <Profiler id="footer" onRender={this.profiler}><Footer/></Profiler>
+        
+       </>
   }
       </>
     );
   }
 }
 export default withStyles(styles)(DisplayBook)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// sortByPrice=(e)=>{
-  //   console.log("sort")
-  //   if(e.target.value === "desc"){
-  //     let sortData=[...this.state._books].sort(function(a,b){
-  //       return b.price-a.price
-  //     })
-  //     this.setState({_books:sortData})
-  //   }
-  //   else if(e.target.value === "asec"){
-  //   let sortData=[...this.state._books].sort(function(a,b){
-  //     return a.price-b.price
-  //   })
-  //   this.setState({_books:sortData})
-  //   }
-  //   else if(e.target.value==="alp-asec"){
-  //     let sortData=[...this.state._books].sort(function(a,b){
-  //       if(a.bookName<b.bookName){
-  //         return -1;
-  //       }
-  //       return 0;
-  //     })
-  //     this.setState({_books:sortData})
-  //   }
-  //

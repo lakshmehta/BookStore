@@ -1,6 +1,6 @@
 import React from 'react';
 import Table from 'react-bootstrap/Table';
-import './OrderSucces.css';
+import './orderSucces.css';
 
 
 function ContactTable() {

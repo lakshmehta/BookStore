@@ -106,7 +106,6 @@ class Login extends React.Component {
       password: this.state.password,
     };
     this.handleToggle();
-    // this.setState({pen:true})
     service
       .userlogin(data)
       .then((res) => {
@@ -118,7 +117,6 @@ class Login extends React.Component {
           setOpen: true,
         });
         localStorage.setItem("usertoken", res.data.result.accessToken);
-        // console.log(localStorage.getItem("usertoken"));
         this.handleClose()
         this.props.history.push("/dashboard");
       })
@@ -143,7 +141,7 @@ class Login extends React.Component {
   render() {
     const { classes } = this.props;
     return (
-      <>
+      <div className="body">
         <TextField
           id="outlined-basic"
           label="Email Id"
@@ -228,7 +226,7 @@ class Login extends React.Component {
             </Alert>
           </Snackbar>
         </div>
-      </>
+      </div>
     );
   }
 }

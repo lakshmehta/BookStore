@@ -2,14 +2,14 @@
     margin-top: 6%;
     width: 70%;
     height: 100vh;
-    margin-left: 170px;
+    margin-left: 180px;
     background: #FFFFFF 0% 0% no-repeat padding-box;
     opacity: 1;
     display: flex;
     flex-direction: row;
     color : black;
 }
-.container{
+.containerD{
     width: 40%;
     height: 60%;
     display: flex;
@@ -55,7 +55,7 @@
 }
 .mainimg{
     height: 100%;
-    width:80%;
+    width: 80%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -65,34 +65,37 @@
 .bigimg{
     width: 74%;
     height: 85%;
+    margin:10px 10px;
 }
 .wishlist{
-    width : 84%;
+    width : 96%;
     height : 10%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-items: center;
     margin-left: 14%;
+    margin-top: 3%;
 }
 .addtobag{
     border : none;
     outline: none;
     color : #fff;
     background-color: brown;
-    height : 130%;
+    height : 40px;
     width :40%;
     border-radius: 1px;
     cursor: pointer;
-}
-.addOrRemove{
-    height : 80%;
+} 
+.addedtobag{ 
+    border : none;
+    outline: none;
+    color : #fff;
+    background: #3371B5 0% 0% no-repeat padding-box;
+    height : 40px;
     width :40%;
-    border-radius: 5px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
+    border-radius: 1px;
+    cursor: pointer;
 }
 .addbtn{
     width : 30%;
@@ -108,10 +111,10 @@
     outline: none;
     color : #fff;
     background-color:  rgba(26, 1, 1, 0.733);
-    height : 130%;
+    height : 40PX;
     width :40%;
     border-radius: 1px;
-    margin-left: 13%;
+    margin-left: 7%;
     cursor: pointer;
 }
 .details{
@@ -120,6 +123,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-left: 10px;
 }
 .bookdetail{
     width : 80%;
@@ -176,9 +180,7 @@
     
     border-radius: 2px;
 }
-.number{
 
-}
 .rating-star{
     margin-left: 8%;
 }
@@ -336,8 +338,112 @@
     margin-left: 15px;
 }
 
-@media only screen and (max-width: 600px){
+@media only screen and (min-width: 360px) and (max-width: 600px){
     .mainContainer{
-        width: 100%;
+        /* width:50%; */
+        display:flex;
+        flex-direction: column;
+        align-items: flex-start;
+        height: 109vh;
+        /* margin-left: -50%; */
     }
+    .addtobag{
+        width: 43%;
+        height:40px
+    }
+    .addedtobag{
+        width: 43%;
+        height:40px;
+        padding: 5px;
+    }
+    .containerD{
+        width:100%;
+        margin-left: -55%; 
+    }
+    .wishlist{
+        margin-left: 0px;
+        align-items: flex-start;
+        display:flex;
+        flex-direction: column;
+    }
+    .addwishlist{
+        margin-left: 0;
+        width: 43%;
+        height:40px;
+        margin-top: 3%;
+    }
+    .bookdetail{
+        margin-left: -80%; 
+        margin-top: 10%;
+        display:flex;
+        justify-content: flex-start;  
+    }
+    .star{
+        width:50px;
+    }
+    .number{       
+        font-size: 15px;
+    }
+    .discount-price{
+        margin-left: 98%; 
+        font-size: 18px;
+    }
+    .price{
+        margin-top: 0%; 
+        margin-left: 10%;
+        font-size: 13px;
+    }
+        .horizoantalline{
+            /* margin-top: 10%; */
+            padding: 10%;
+            margin-left: -90%; 
+            width: 350px;
+        }
+        .desc-book{
+            width:100%;
+            margin-right: 105%; 
+            /* margin-top: 1%; */
+        }
+        .desc-title{
+            width:50%;
+            margin-right: 110%; 
+            margin-top: -10%;
+        }
+    
+        .lorem{
+           
+            width:fit-content;
+            /* height: fit-content; */
+            /* text-align: left; */
+            /* margin-left: -100%; */
+            margin-top: 6%; 
+            margin-bottom: 65%; 
+        }
+    
+        .imgsmall1{
+            display: none;
+        }
+    
+        .image2{
+            display: none;
+        }
+    
+        .title{
+            font: normal normal normal 25px/37px Roboto;
+        }
+    
+        .details{
+            display:flex;
+            flex-direction: column;  
+            width:100%;
+        }
+    
+        .customer-feedback-container{
+            width: 50%;
+        }
+    
+        .textarea-actual-cutomerfeedback{
+            width:90%;
+            margin-left: 5%;
+        }
 }

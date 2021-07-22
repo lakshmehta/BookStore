@@ -9,19 +9,24 @@
     background-color: #a03037;
     box-shadow: none;
     display: flex;
-    justify-content: space-around;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
 }
 .appbar div{
     display: flex;
+    /* margin-left: 12%;
+    width: 80%; */
 }
+
 .appbar div img{
     width: 30px;
     height: 30px;
+    margin-left: 178.98px !important;
 }
 .appbar div p{
     color: white;
-    padding-left: 5px;
+    margin-left: 5px;
     font-size: 20px;
     width: auto;
 }
@@ -33,29 +38,32 @@
     background:#FCFCFC 0% 0% no-repeat padding-box;
     display: flex;
     flex-direction: row;
-    align-items: center;
-    padding-left: 3px;
-    flex-grow: 0;
-    margin-left: 30px;
+    align-items: center;   
+    margin-left: 20px;
     opacity: 1;
+
 }
 .appbar .input .searchicon {
     color: grey;
 }
-.appbar .input input {
+.input input {
     height: 29px;
     outline: none;
     border-radius: 3px;
     border: none;
+    margin-left: 2%;
 }
-.appbar div {
-    padding: 0 25px;
+.icons{
+    display:  flex;
+    justify-content: flex-start;
+    /* width: 20%; */
 }
 .appbar div .pro {
     color: white;
     display: flex;
     flex-direction: column;
-    width: auto;
+    cursor: pointer;
+    margin-right: 35px;
 }
 .appbar div .pro .proicon {
     color: white;
@@ -67,6 +75,7 @@
     flex-direction: column;
     width: auto;
     cursor: pointer;
+    margin-right: 207px;
 }
 .appbar div .cart .carticon {
     color: white;
@@ -75,39 +84,26 @@
 .badge{
     color: #FCFCFC;
 }
-@media screen and (max-width: 360px) {
-     .appbar {
-        width:100%;
-        justify-content: none;
-   }
+@media screen and (min-width: 360px) and (max-width: 600px) {
+    .appbar div p{
+        display: none;
+    }
+    .appbar div img{
+        margin-left: 10px!important;
+    }
     .input{
-        width:100%;
+        width: 70%;
+    }
+    .input input{
+        width: 80%;
     }
     .appbar div .pro {
-      margin-left:-30px;
-      font-size:15px
-   }
-     .appbar div p {
-        display: none;
-   } 
-   .appbar .input input {
-       width: 100%;
-   }
-   .appbar div img{
-       width:30px
-   }
-   .appbar div .pro .proicon{
-       width:25px
-   }
-   .appbar div .cart .carticon{
-       width:25px;
-   }
-   .appbar div .cart{
-    font-size:15px;
-    margin-left: -10px;
-    padding:1px
-   }
-   .appbar .input .searchicon{
-       margin-left: -10px;
-   }
+        margin-right: 7px;
+    }
+    .appbar div img{
+       width: 30px    
+    }
+    .appbar div .cart {
+       margin-right: 10px;
+    }
 }

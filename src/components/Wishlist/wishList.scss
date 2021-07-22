@@ -1,0 +1,91 @@
+@mixin flex($display,$justify, $direction, $width, $height, $margintop) {
+    margin-top: $margintop;
+    display: $display;
+    flex-direction: $direction;
+    justify-content: $justify;
+    height: $height;
+    width: $width;
+}
+$border: 1px solid #d9cccc;
+.main-container{
+    @include flex(flex, space-between, column, null, 100%,0);
+    align-items: center;
+
+}
+.title1 {
+    width: 81%;
+    margin-left: 5%;
+    margin-top: 5px;
+}
+
+.cartBag-content1 {
+    width: 1023px;
+    min-height: 223px;
+    border: 1px solid #d9cccc;
+    margin-top: 20px;
+    margin-left: -9%;
+}
+.heading-wishlist {
+    @include flex(flex, center, column, null, 58px, null);
+    padding-left: 38px;
+    border: $border;
+    font-weight: 600;
+    background: #F5F5F5 0% 0% no-repeat padding-box;;
+}
+.main-cart1{
+    display: flex;
+    height: 200px;
+    margin-left:22.5px;
+}
+.img-book{
+    width: 75px;
+    height: 90px;
+    margin-top: 23px!important;
+    margin-left: 20px !important;;
+}
+.text-fields{
+    display: flex;
+    flex-direction: column;
+    width: 687px;
+    margin-left: 40px;
+    margin-top: 23px;
+}
+.title {
+    font-weight: 500;
+    font-size: 16px;
+    padding-bottom: 12px;
+}
+.bookAuthor{
+    font-size: 12px;
+    height: 12px;
+    color: #a49595;
+    font-weight: 400;
+}
+.price1 {
+    font-weight: bold;
+    margin-top: 15px;
+    font-size: 14px;
+}
+.delete-icon{
+    justify-content: flex-end;
+    margin-left: 350px;
+   
+}
+.btn-content1 {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 100px;
+    height: 35px;
+    width: 207px;
+    margin-right: 30px;
+}
+.btn-place1 {
+    background-color: #3371b5 !important;
+    color: white !important;
+    font-size: 18px;
+    
+}
+.btn-move{
+    font-size: 7px;
+    font-weight: bolder;
+}

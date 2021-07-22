@@ -7,12 +7,12 @@
     justify-content: flex-start;
     align-items: flex-start;
     font-family: Roboto;
-    margin: 0 15.5%;
+    margin-left: 10%;
     padding: 30px;
 }
 .cartcontent .mycart {
-    margin-top: 20px;
-    font-size: 20px;
+    /* margin-top: 10px; */
+    font-size: 18px;
 }
 .cartcontent .Home {
     top: 79px;
@@ -25,45 +25,45 @@
     color: #0a0102;
     opacity: 1;
 }
-.cartcontent .cartitems .part1 {
+.part1 {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 }
-.cartcontent .cartitems .part1 .container {
+.container {
     width: auto;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 }
-.cartcontent .cartitems .part1 .container .items {
+.items {
     padding: 10px;
 }
-.cartcontent .cartitems .part1 .container .items .author {
+.author {
     font-size: 15px;
     color: #878787;
     padding-bottom: 8px;
 }
-.cartcontent .cartitems .part1 .container .items .price {
+.price {
     padding-bottom: 5px;
 }
-.cartcontent .cartitems .part1 .container .items .inlineicons {
+.inlineicons {
     padding: 5px 0;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
 }
-.cartcontent .cartitems .part1 .container .items .inlineicons .quantity {
+.quantity {
     width: 34px;
     height: 23px;
     text-align: center;
     border: 1px solid #878787;
     margin: 0 3px;
 }
-.cartcontent .cartitems .part1 .container .items .inlineicons .remove {
+.remove {
     padding: 0 10px;
 }
 .cartcontent .cartitems .part1 img {
