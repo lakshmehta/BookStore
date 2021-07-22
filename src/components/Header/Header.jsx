@@ -35,20 +35,20 @@ class Header extends Component {
       <>
         <div className="appbar">
           <div>
-          <Link to="/dashboard"><img src={Book} alt="" /></Link>
-            <p style={{ cursor: "pointer",color: "white", textDecoration: "none", listStyleType: "none", }}>
+            <Link to="/dashboard"><img src={Book} alt="" /></Link>
+              <p style={{ cursor: "pointer",color: "white", textDecoration: "none", listStyleType: "none", }}>
                <Link to="/dashboard" style={{ cursor: "pointer",color: "white", textDecoration: "none", listStyleType: "none", }}>Bookstore</Link>
-            </p>
-            {!this.props.displayDetail && 
-            <div className="input">
-              <SearchOutlinedIcon className="searchicon" />
+              </p>
+              {!this.props.displayDetail && 
+              <div className="input">
+                <SearchOutlinedIcon className="searchicon" />
               <input
                 type="text"
                 placeholder="Search"
                 onChange={(e) => this.handleChange(e.target.value)}
               />
             </div>}
-            </div>
+          </div>
           <div className="icons">
             <div className="pro">
                <ProfilePopper />

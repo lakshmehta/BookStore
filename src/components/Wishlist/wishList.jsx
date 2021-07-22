@@ -52,9 +52,9 @@ export default class Wishlist extends Component {
         console.log(error);
       });
   };
-  delete = () => {
+  deleteFromWishlist = (id) => {
     new UserService()
-      .removeFromWishList()
+      .removeFromWishList(id)
       .then((result) => {
         this.getWishList();
       })
@@ -70,16 +70,42 @@ export default class Wishlist extends Component {
         <div className="main-container">
           <div className="title1">Home/My Wishlist</div>
           <div className="cartBag-content1">
-            <div className="heading-wishlist">My Whislist</div>
+            <div className="heading-wishlist">My Whislist({this.state.wishListBook.length})</div>
             {this.state.wishListBook.map((value) => {
-            return (
-              <>
-                <div>{value.product_id.bookName}</div>
-                <div>{value.product_id.author}</div>
-                <div>{value.product_id.price}</div>
-              </>
-            );
-          })}
+              return (
+                <div className="main-cart1">
+                  <div>
+                    <img className="img-book" src={Book} alt="" />
+                  </div>
+                    <div className="text-fields">
+                      <div className="title">
+                        {value.product_id.bookName}
+                      </div>
+                      <div className="bookAuthor">
+                        by {value.product_id.author}
+                      </div>
+                      <div className="price1">Rs.{value.product_id.price}</div>
+                    </div>
+                    <div className="delete-icon">
+                      <div
+                        style={{ cursor: "pointer", color: "grey",marginTop:'23px' }}
+                        onClick={()=>this.deleteFromWishlist(value.product_id._id)}
+                      >
+                        <DeleteIcon />
+                      </div>
+                    </div>
+                    <div className="btn-content1">
+                      {/* <Button
+                        variant="contained"
+                        className="btn-place1"
+                        onClick={() => this.moveToCart(value.product_id)}
+                      >
+                        <span className="btn-move"> Move to cart </span>
+                      </Button> */}
+                    </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

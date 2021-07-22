@@ -101,15 +101,13 @@ class MyCartBag extends React.Component {
     return valid;
   };
 
-  componentDidMount() {
+  componentDidMount(){
     this.gettingCart();
   }
   gettingCart = () => {
     service.getCartItems().then((res) => {
       console.log(res);
       this.setState({ _cartbooks: res.data.result });
-      console.log(this.state._cartbooks.length, "array length");
-      // console.log(JSON.stringify(this.state._cartbooks));
     });
   };
   changeState = (e) => {

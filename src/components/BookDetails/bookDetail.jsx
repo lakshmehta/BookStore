@@ -106,7 +106,7 @@ class BookDeatail extends Component {
           </Backdrop>
         ) : (
           <div className="mainContainer">
-            <div className="container" style={{display:'flex',flexDirection:'column'}}>
+            <div className="containerD" style={{display:'flex',flexDirection:'column'}}>
               <div className="imgs-container">
                 <div className="twoimg-comtainer">
                   <div className="imgsmall1">
@@ -122,7 +122,7 @@ class BookDeatail extends Component {
               </div>
               <div className="wishlist">
                 {this.handleCartItem(this.props.displayDetail._id) ? (
-                  <button className="addtobag">Added To Bag</button>
+                  <button className="addedtobag">Added To Bag</button>
                 ) : (
                   <button
                     className="addtobag"
@@ -131,6 +131,7 @@ class BookDeatail extends Component {
                     Add To Bag
                   </button>
                 )}
+                 {/* <button className="addwishlist">Added To Wishlist</button>: */}
                 <button className="addwishlist"  onClick={()=>this.addToWishList(this.props.displayDetail._id)}>
                 <i class="zmdi zmdi-favorite"></i> <span>WishList</span>
               </button>
@@ -194,8 +195,8 @@ class BookDeatail extends Component {
                 <hr></hr>
               </div>
               <div className="customer-feedback">
-                <span className="feedback">Customer Feedback</span>
-                <CustomerFeedback />
+                {/* <span className="feedback">Customer Feedback</span>
+                <CustomerFeedback /> */}
               </div>
             </div>
           </div>

@@ -21,7 +21,11 @@ class Dashboard extends Component {
       showBooks: [],
       show: true,
       cartLength: "",
+      cartbooks:[]
     };
+  }
+  componentDidMount(){
+    this.gettingCart();
   }
   onClickBookDetails = (value) => {
     this.setState({ selectedBook: value });
@@ -34,8 +38,13 @@ class Dashboard extends Component {
     this.props.history.push("/cart");
   };
 
-  getCartBook = () => {
-    new UserService().getCartItems().then((result) => {});
+  gettingCart = () => {
+    new UserService().getCartItems().then((res) => {
+      console.log(res);
+      this.setState({ cartbooks: res.data.result });
+      console.log(this.state.cartbooks.length, "array length");
+      // console.log(JSON.stringify(this.state._cartbooks));
+    });
   };
   getBook = (books) => {
     this.setState({ showBooks: books });
@@ -86,7 +95,9 @@ class Dashboard extends Component {
           displayDetail={this.state.selectedBook}
           searchShow={this.state.show}
           searchBook={this.state.searchBook}
+          cartBook={this.state.cartbooks.length}
         />
+         <div style={{ minHeight: "80%" }}>
         {this.state.selectedBook ? (
           <BookDetail
             handleShow={this.handleShow}
@@ -101,6 +112,7 @@ class Dashboard extends Component {
             bookDetail={this.onClickBookDetails}
           />
         )}
+        </div>
         <div style={{ minHeight: "80%" }}>
           {/* <Route path="/dashboard">
             <DisplayBook
@@ -125,7 +137,7 @@ class Dashboard extends Component {
                     </Switch>
             </Router> */}
         </div>
-        <Futer />
+        {/* <Futer /> */}
       </>
     );
   }

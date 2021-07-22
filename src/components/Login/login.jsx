@@ -141,7 +141,7 @@ class Login extends React.Component {
   render() {
     const { classes } = this.props;
     return (
-      <>
+      <div className="body">
         <TextField
           id="outlined-basic"
           label="Email Id"
@@ -226,7 +226,7 @@ class Login extends React.Component {
             </Alert>
           </Snackbar>
         </div>
-      </>
+      </div>
     );
   }
 }

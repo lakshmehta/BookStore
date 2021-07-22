@@ -84,7 +84,7 @@ export default class UserService {
             }
         })
     }
-    removeFromWishList=()=>{
+    removeFromWishList=(id)=>{
         return axios_service.delete(`${this.baseUrl}/remove_wishlist_item/${id}`,{
             headers:{
                 'x-access-token':localStorage.getItem('usertoken'),

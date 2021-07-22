@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component,Profiler } from "react";
 import "./displayBook.css";
 import UserService from "../../Services/userService";
 import BookOne from "../../assets/Image 11.png";
@@ -6,7 +6,7 @@ import PaginationBar from "./paginationBar";
 import Backdrop from "@material-ui/core/Backdrop";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { withStyles } from "@material-ui/core/styles";
-
+import Footer from '../Footer/footer';
 const service = new UserService();
 const styles = theme => ({
     backdrop: {
@@ -60,7 +60,15 @@ const styles = theme => ({
   componentDidMount(){
     this.GetAllBooks();
   }
-  
+  profiler = (id,phase,actualDuration,baseDuration,startTime,commitTime,interactions) => {
+    console.log(`${id}`)
+    console.log(`phase:${phase}`);
+    console.log(`Actual time: ${actualDuration}`);
+    console.log(`Base time: ${baseDuration}`);
+    console.log(`Start time: ${startTime}`);
+    console.log(`Commit time: ${commitTime}`);
+    console.log(`Interactions: ${interactions}`);
+}
   GetAllBooks = () => {
     var books = [];
     this.handleToggle();
@@ -133,15 +141,15 @@ handleSorting=(e)=>{
           onClick={this.handleClose}
         >
           <CircularProgress color="inherit" />
-        </Backdrop>:
+        </Backdrop>:<>
         <div className="usercontent">
           <div className="inlineheader">
             <div className="headers">
               Books 
               <span>({this.props.searchBook ? <span>{this.props.searchedData.length}</span>:<span>{this.state.bookArray.length}</span>}items)</span>
             </div>
-             <div className="select">
-             <select style={{ width: '140px', height: '40px' }} onChange={(e)=>this.handleSorting(e)} >
+             <div >
+             <select className="select" onChange={(e)=>this.handleSorting(e)} >
                 <option selected >Sort by relevance</option>
                 <option value="dsec" >Price: high to low</option>
                 <option value="asec"  >Price: low to high</option>
@@ -173,13 +181,16 @@ handleSorting=(e)=>{
           </div>
 
           <PaginationBar
-            bookArray={this.state.bookArray}
+            bookArray={this.props.searchBook ? this.props.searchedData : this.state.bookArray}
             postsPerPage={this.state.postsPerPage}
             currentPage={this.state.currentPage}
             changepage={this.changepage}
           />
+         
         </div>
-       
+        <Profiler id="footer" onRender={this.profiler}><Footer/></Profiler>
+        
+       </>
   }
       </>
     );
